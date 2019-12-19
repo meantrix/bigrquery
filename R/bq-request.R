@@ -35,11 +35,22 @@ bq_ua <- function() {
   )
 }
 
+#bq_body <- function(body, ...) {
+#  user <- toCamel(list(...))
+#  utils::modifyList(body, user)
+#}
+
 bq_body <- function(body, ...) {
   user <- toCamel(list(...))
-  utils::modifyList(body, user)
+  
+  if ("configuration" %in% names(body)) {
+    configuration <- utils::modifyList(body$configuration, user)
+    body$configuration <- configuration
+    return(body)
+  } else {
+    utils::modifyList(body, user)
+  }
 }
-
 
 #' @importFrom httr GET config
 bq_get <- function(url, ..., query = NULL, raw = FALSE, token = bq_token()) {
