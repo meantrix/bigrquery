@@ -1,4 +1,4 @@
-Package: bigrquery
+Package: bigrquery_m3
 Title: An Interface to Google's 'BigQuery' 'API'
 Version: 1.2.0.9000
 Authors@R: c(
