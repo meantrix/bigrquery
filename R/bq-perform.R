@@ -249,6 +249,7 @@ bq_perform_query <- function(query, billing,
                              create_disposition = "CREATE_IF_NEEDED",
                              write_disposition = "WRITE_EMPTY",
                              use_legacy_sql = FALSE,
+                             dry_run = FALSE,
                              priority = "INTERACTIVE"
                              ) {
   assert_that(is.string(query), is.string(billing))
@@ -256,6 +257,7 @@ bq_perform_query <- function(query, billing,
   query <- list(
     query = unbox(query),
     useLegacySql = unbox(use_legacy_sql),
+    dryRun = unbox(dry_run),
     priority = unbox(priority)
   )
 
