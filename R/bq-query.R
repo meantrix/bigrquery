@@ -45,14 +45,12 @@ NULL
 #' @rdname bq_query
 bq_project_query <- function(x, query,
                              destination_table = NULL,
-                             dry_run = FALSE,
                              ...,
                              quiet = NA) {
   job <- bq_perform_query(
     query,
     billing = x,
     destination_table = destination_table,
-    dry_run = dry_run,
     ...
   )
   bq_job_wait(job, quiet = quiet)
